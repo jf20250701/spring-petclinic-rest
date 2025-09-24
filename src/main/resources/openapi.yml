@@ -1955,6 +1955,13 @@ components:
           example: '2010-09-07'
         type:
           $ref: '#/components/schemas/PetType'
+        weight:
+          title: Weight
+          description: Pet weight in kilograms (nullable)
+          type: number
+          format: double
+          example: 15.75
+          nullable: true
       required:
         - name
         - birthDate

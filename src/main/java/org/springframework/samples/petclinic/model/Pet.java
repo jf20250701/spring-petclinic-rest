@@ -37,6 +37,12 @@ public class Pet extends NamedEntity {
     @Column(name = "birth_date", columnDefinition = "DATE")
     private LocalDate birthDate;
 
+    /**
+     * Pet weight in kilograms (nullable, decimal)
+     */
+    @Column(name = "weight")
+    private Double weight;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "type_id")
     private PetType type;
@@ -96,6 +102,14 @@ public class Pet extends NamedEntity {
     public void addVisit(Visit visit) {
         getVisitsInternal().add(visit);
         visit.setPet(this);
+    }
+
+    public Double getWeight() {
+        return this.weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
     }
 
 }
